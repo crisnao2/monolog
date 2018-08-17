@@ -110,7 +110,9 @@ class SlackRecord
             $dataArray['username'] = $this->username;
         }
 
-        if ($this->channel) {
+        if (isset($record['context']['channel'])) {
+            $dataArray['channel'] = $record['context']['channel'];
+        } elseif ($this->channel) {
             $dataArray['channel'] = $this->channel;
         }
 
